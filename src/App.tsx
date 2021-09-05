@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
-import TopBar from './Components/TopBar/TopBar';
-
-
+import TopBar from './Components/TopBar';
 
 function App() {
-
   return (
     <React.Fragment>
       <CssBaseline />

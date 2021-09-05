@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function TopBar() {
+export function TopBar() {
   const classes = useStyles();
 
   return (
@@ -39,5 +39,3 @@ function TopBar() {
     </>
   )
 }
-
-export default TopBar;
