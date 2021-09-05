@@ -1,25 +1,41 @@
 import React from 'react';
 import './App.css';
-import logo from './logo.svg';
+import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+
+      <Container>
+        <Grid container spacing={3}>
+
+          <Grid item xs={12}>
+            <Typography variant="h2" align="center">
+              The Netherland Explorer
+            </Typography>
+          </Grid>
+
+          <Grid xs={12} sm={6}>
+            <Typography align="center">
+              Search Filters 1
+            </Typography>
+          </Grid>
+          <Grid xs={12} sm={6}>
+            <Typography align="center">
+              Search Filters 2
+            </Typography>
+          </Grid>
+
+          <Grid xs={12}>
+            <Typography variant="subtitle1" align="center">
+              Search Results
+            </Typography>
+          </Grid>
+
+        </Grid>
+      </Container>
+    </React.Fragment>
   );
 }
 
