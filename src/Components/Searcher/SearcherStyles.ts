@@ -29,6 +29,13 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 28,
       margin: 4,
     },
+    row: {
+      borderBottom: '1px solid #DDD',
+      padding: theme.spacing(1.5)
+    },
+    altRow: {
+      backgroundColor: theme.palette.primary.light
+    }
   }),
 );
 

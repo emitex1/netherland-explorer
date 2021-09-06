@@ -1,10 +1,11 @@
 import { useState } from "react";
 import useStyles from "./SearcherStyles";
 
-import { Grid, Paper, InputBase, Divider, IconButton, Typography } from "@material-ui/core";
+import { Grid, Paper, InputBase, Divider, IconButton, Typography, Box } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 
 import allCities from './nl.json';
+
 interface IHash {
   [key: string] : any[]
 }
@@ -15,6 +16,7 @@ export function Searcher() {
   const [hashmap, setHashmap] = useState<IHash>();
   const [hashMapIsFilled, setHashMapIsFilled] = useState(false);
   const [searchResult, setSearchResult] = useState<any>();
+  const [searchDuration, setSearchDuration] = useState('');
 
   const generateHashMap = () => {
     if(hashMapIsFilled)
@@ -54,10 +56,16 @@ export function Searcher() {
 
     if(hashmap) {
       if(searchKeyword.length >= 2) {
+        const t0 = performance.now();
+
         const key = searchKeyword.substr(0, 2);
         const relatedCities = hashmap[key];
         const result = relatedCities && relatedCities.filter(c => c.cityName.indexOf(searchKeyword) >= 0);
+        // const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
+
+        const t1 = performance.now();
         setSearchResult(result);
+        setSearchDuration((t1-t0).toFixed(5));
       }
       else {
         setSearchResult(null);
@@ -68,9 +76,11 @@ export function Searcher() {
   const renderInitial = () => (
     <Grid container>
       <Grid item xs={12}>
-        <Typography variant="body1" align="center">
-          Please enter a keyword (at least 2 characters) to search in the cities of the Netherlands
-        </Typography>
+        <Box my={3} color="#606060">
+          <Typography variant="body1" align="center">
+            Please enter a keyword (at least 2 characters) to search for the cities of the Netherlands
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   )
@@ -78,9 +88,11 @@ export function Searcher() {
   const renderNoResult = () => (
     <Grid container>
       <Grid item xs={12}>
-        <Typography variant="h6" align="center">
-          Not results found for the "{keyword}" keyword
-        </Typography>
+        <Box my={3} color="#A42121">
+          <Typography variant="h6" align="center">
+            No results found for the "{keyword}" keyword
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   )
@@ -89,9 +101,11 @@ export function Searcher() {
     <Grid container>
 
       <Grid item xs={12}>
-        <Typography variant="h6" align="center">
-          Search results for "{keyword}" ({searchResult.length} cities)
-        </Typography>
+        <Box color="#AAA" my={1.5}>
+          <Typography variant="body1" align="center">
+            Search process resulted #{searchResult.length} cities in about {searchDuration} ms for "{keyword}" keyword
+          </Typography>
+        </Box>
       </Grid>
 
       <Grid item xs={12} container direction="row">
@@ -116,15 +130,19 @@ export function Searcher() {
       {
         searchResult && searchResult.map ( (city:any, index: number) => {
           return (
-            <Grid key={index} item xs={12} container direction="row">
+            <Grid key={index} item xs={12} container direction="row" className={classes.row}>
               <Grid item xs={4}>
-                {city.cityName}
+                <Box fontWeight="900" color="purple">
+                  {city.cityName}
+                </Box>
               </Grid>
               <Grid item xs={4}>
                 {city.province}
               </Grid>
               <Grid item xs={4}>
-                {city.population}
+                <Typography align="center">
+                  {city.population}
+                </Typography>
               </Grid>
             </Grid>
           )
