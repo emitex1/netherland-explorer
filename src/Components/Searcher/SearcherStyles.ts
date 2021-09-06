@@ -10,6 +10,14 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: 'auto',
       marginTop: theme.spacing(3)
     },
+    searchResult: {
+      padding: '2px 4px',
+      display: 'flex',
+      alignItems: 'center',
+      width: 600,
+      margin: 'auto',
+      marginTop: theme.spacing(2)
+    },
     input: {
       marginLeft: theme.spacing(1),
       flex: 1,
