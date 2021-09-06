@@ -30,7 +30,7 @@ const useSearch = () => {
             province: allCities[i].admin_name,
             population: allCities[i].population
           }
-          const keyPosition: number = city.cityName.indexOf(key);
+          const keyPosition: number = city.cityName.toLowerCase().indexOf(key);
 
           if(keyPosition >= 0) {
             cityHashMap[alphabet1][alphabet2].push(city)
@@ -47,13 +47,13 @@ const useSearch = () => {
     setKeyword(searchKeyword);
 
     if(hashmap) {
-      if(searchKeyword.length >= 2) {
+      if(searchKeyword.length >= 2 && searchKeyword.match(/^[a-zA-Z]*$/)) {
         const t0 = performance.now();
 
-        const alphabet1Code = searchKeyword[0].charCodeAt(0) - 97;
-        const alphabet2Code = searchKeyword[1].charCodeAt(0) - 97;
+        const alphabet1Code = searchKeyword[0].toLowerCase().charCodeAt(0) - 97;
+        const alphabet2Code = searchKeyword[1].toLowerCase().charCodeAt(0) - 97;
         const relatedCities = hashmap[alphabet1Code][alphabet2Code];
-        const result = relatedCities && relatedCities.filter( (c: any) => c.cityName.indexOf(searchKeyword) >= 0);
+        const result = relatedCities && relatedCities.filter( (c: any) => c.cityName.toLowerCase().indexOf(searchKeyword.toLowerCase()) >= 0);
         //const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
 
         const t1 = performance.now();
