@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
+
+/** Components */
 import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
 import TopBar from './Components/TopBar';
 import LeftDrawer from './Components/LeftDrawer';
+import AboutMe from './Components/AboutMe';
+
+/** Hooks */
 import useLeftDrawer from './Components/LeftDrawer/LeftDrawerHooks';
 
 function App() {
@@ -18,36 +23,15 @@ function App() {
 
       <Container>
         <Grid container spacing={3}>
-
           <Grid item xs={12}>
-            <Typography variant="h2" align="center">
-              {
-                pageIndex === 1
-                  ? <span>Search</span>
-                  : pageIndex === 2
-                    ? <span>Config</span>
-                    : <span>About</span>
-              }
-            </Typography>
+            {
+              pageIndex === 1
+                ? <Typography variant="h2" align="center">Search</Typography>
+                : pageIndex === 2
+                  ? <Typography variant="h2" align="center">Config</Typography>
+                  : <AboutMe />
+            }
           </Grid>
-
-          <Grid xs={12} sm={6}>
-            <Typography align="center">
-              Search Filters 1
-            </Typography>
-          </Grid>
-          <Grid xs={12} sm={6}>
-            <Typography align="center">
-              Search Filters 2
-            </Typography>
-          </Grid>
-
-          <Grid xs={12}>
-            <Typography variant="subtitle1" align="center">
-              Search Results
-            </Typography>
-          </Grid>
-
         </Grid>
       </Container>
     </React.Fragment>
