@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import allCities from '../nl.json';
+import allCities from '../data/nl.json';
 
 interface IHash {
   [key: string] : any[]
