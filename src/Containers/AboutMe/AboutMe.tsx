@@ -1,5 +1,6 @@
 import { ButtonBase, Grid, Link, Paper, Typography } from "@material-ui/core";
 import useStyles from "./AboutMeStyles";
+import mePhoto from "../../assets/images/me.jpg";
 
 export function AboutMe() {
   const classes = useStyles();
@@ -10,7 +11,7 @@ export function AboutMe() {
 
         <Grid item>
           <ButtonBase className={classes.image}>
-            <img className={classes.img} alt="Emad" src="me.jpg" />
+            <img className={classes.img} alt="Emad" src={mePhoto} />
           </ButtonBase>
         </Grid>
 

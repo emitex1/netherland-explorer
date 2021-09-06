@@ -5,6 +5,7 @@ import { Drawer, Divider, List, ListItem, ListItemIcon, ListItemText, Avatar, Bo
 import SearchIcon from '@material-ui/icons/Search';
 import ConfigIcon from '@material-ui/icons/Settings';
 import AboutIcon from '@material-ui/icons/Person';
+import logoImage from "../../assets/images/logo.png";
 
 export function LeftDrawer(props: LeftDrawerPropTypes) {
   const {isOpen, toggleDrawer, setPageIndex} = props;
@@ -26,7 +27,7 @@ export function LeftDrawer(props: LeftDrawerPropTypes) {
 
   const renderHead = () => (
     <Box display="flex" flexDirection="column" flexGrow={1} justifyContent="center" alignItems="center">
-      <Avatar alt="Logo" src="android-chrome-192x192.png" className={classes.large} variant="square" />
+      <Avatar alt="Logo" src={logoImage} className={classes.large} variant="square" />
 
       <Typography variant="h4" align="center">
         Netherland Explorer
