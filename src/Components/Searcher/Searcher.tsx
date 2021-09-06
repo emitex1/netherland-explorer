@@ -3,22 +3,11 @@ import useSearch from "./hooks/useSearch";
 
 import { Grid, Paper, Typography, Box } from "@material-ui/core";
 import SearchInput from "./components/SearchInput";
+import InitialMessage from "./components/InitialMessage";
 
 export function Searcher() {
   const classes = useStyles();
   const { doSearch, keyword, searchResult, searchDuration } = useSearch();
-
-  const renderInitial = () => (
-    <Grid container>
-      <Grid item xs={12}>
-        <Box my={3} color="#606060">
-          <Typography variant="body1" align="center">
-            Please enter a keyword (at least 2 characters) to search for the cities of the Netherlands
-          </Typography>
-        </Box>
-      </Grid>
-    </Grid>
-  )
 
   const renderNoResult = () => (
     <Grid container>
@@ -98,7 +87,7 @@ export function Searcher() {
         <Paper className={classes.searchResult}>
 
           { keyword === '' || keyword.length < 2
-            ? renderInitial()
+            ? <InitialMessage />
             : ! searchResult || searchResult.length === 0
               ? renderNoResult()
               : renderSearchResults()
