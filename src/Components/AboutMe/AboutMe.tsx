@@ -25,7 +25,7 @@ export function AboutMe() {
               Full-stack JavaScript Developer
             </Typography>
             <Typography variant="body1" color="textSecondary">
-              <Link href="http://www.EmadArmoun.com">
+              <Link href="http://www.EmadArmoun.com" target="_blank">
                 www.EmadArmoun.com
               </Link>
             </Typography>
