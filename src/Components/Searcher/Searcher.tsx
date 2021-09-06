@@ -1,77 +1,31 @@
-import { useState } from "react";
 import useStyles from "./SearcherStyles";
+import useSearch from "./hooks/useSearch";
 
 import { Grid, Paper, InputBase, Divider, IconButton, Typography, Box } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 
-import allCities from './nl.json';
-
-interface IHash {
-  [key: string] : any[]
-}
-
 export function Searcher() {
   const classes = useStyles();
-  const [keyword, setKeyword] = useState('');
-  const [hashmap, setHashmap] = useState<IHash>();
-  const [hashMapIsFilled, setHashMapIsFilled] = useState(false);
-  const [searchResult, setSearchResult] = useState<any>();
-  const [searchDuration, setSearchDuration] = useState('');
+  const { doSearch, keyword, searchResult, searchDuration } = useSearch();
 
-  const generateHashMap = () => {
-    if(hashMapIsFilled)
-      return;
-    
-    const cityHashMap: IHash = {};
+  const renderSearchInput = () => (
+    <Paper component="form" className={classes.root}>
 
-    for(let alphabet1=0; alphabet1<26; ++alphabet1) {
-      for(let alphabet2=0; alphabet2<26; ++alphabet2) {
-        let key = String.fromCharCode(97 + alphabet1) + String.fromCharCode(97 + alphabet2);
+      <InputBase
+        className={classes.input}
+        placeholder="Enter city name here"
+        inputProps={{ 'aria-label': 'Search Keyword' }}
+        onChange={(e) => {doSearch(e.target.value)}}
+      />
 
-        for(let i=0; i<allCities.length; ++i) {
-          const city = {
-            cityName: allCities[i].city,
-            province: allCities[i].admin_name,
-            population: allCities[i].population
-          }
-          const keyPosition: number = city.cityName.indexOf(key);
+      <Divider className={classes.divider} orientation="vertical" />
 
-          if(keyPosition >= 0) {
-            //console.log('city = ' , allCities[i].city , ' key=', key, ' pos=', keyPosition);
-            if(! cityHashMap[key])
-              cityHashMap[key] = [];
-            cityHashMap[key].push(city)
-          }
-        }
-      }
-    }
+      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+        <SearchIcon />
+      </IconButton>
 
-    setHashmap(cityHashMap);
-    setHashMapIsFilled(true);
-  }
-  generateHashMap();
-
-  const handleSearch = (searchKeyword: string) => {
-    setKeyword(searchKeyword);
-
-    if(hashmap) {
-      if(searchKeyword.length >= 2) {
-        const t0 = performance.now();
-
-        const key = searchKeyword.substr(0, 2);
-        const relatedCities = hashmap[key];
-        const result = relatedCities && relatedCities.filter(c => c.cityName.indexOf(searchKeyword) >= 0);
-        // const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
-
-        const t1 = performance.now();
-        setSearchResult(result);
-        setSearchDuration((t1-t0).toFixed(5));
-      }
-      else {
-        setSearchResult(null);
-      }
-    }
-  }
+    </Paper>
+  )
 
   const renderInitial = () => (
     <Grid container>
@@ -97,7 +51,7 @@ export function Searcher() {
     </Grid>
   )
 
-  const renderSearchResult = () => (
+  const renderSearchResults = () => (
     <Grid container>
 
       <Grid item xs={12}>
@@ -156,22 +110,7 @@ export function Searcher() {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Paper component="form" className={classes.root}>
-
-          <InputBase
-            className={classes.input}
-            placeholder="Enter city name here"
-            inputProps={{ 'aria-label': 'Search Keyword' }}
-            onChange={(e) => {handleSearch(e.target.value)}}
-          />
-
-          <Divider className={classes.divider} orientation="vertical" />
-
-          <IconButton type="submit" className={classes.iconButton} aria-label="search">
-            <SearchIcon />
-          </IconButton>
-
-        </Paper>
+        {renderSearchInput()}
       </Grid>
 
       <Grid item xs={12}>
@@ -181,7 +120,7 @@ export function Searcher() {
             ? renderInitial()
             : ! searchResult || searchResult.length === 0
               ? renderNoResult()
-              : renderSearchResult()
+              : renderSearchResults()
           }
           
         </Paper>
