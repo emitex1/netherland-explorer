@@ -1,31 +1,12 @@
 import useStyles from "./SearcherStyles";
 import useSearch from "./hooks/useSearch";
 
-import { Grid, Paper, InputBase, Divider, IconButton, Typography, Box } from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search';
+import { Grid, Paper, Typography, Box } from "@material-ui/core";
+import SearchInput from "./components/SearchInput";
 
 export function Searcher() {
   const classes = useStyles();
   const { doSearch, keyword, searchResult, searchDuration } = useSearch();
-
-  const renderSearchInput = () => (
-    <Paper component="form" className={classes.root}>
-
-      <InputBase
-        className={classes.input}
-        placeholder="Enter city name here"
-        inputProps={{ 'aria-label': 'Search Keyword' }}
-        onChange={(e) => {doSearch(e.target.value)}}
-      />
-
-      <Divider className={classes.divider} orientation="vertical" />
-
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-
-    </Paper>
-  )
 
   const renderInitial = () => (
     <Grid container>
@@ -110,7 +91,7 @@ export function Searcher() {
   return (
     <Grid container>
       <Grid item xs={12}>
-        {renderSearchInput()}
+        <SearchInput doSearch={doSearch} />
       </Grid>
 
       <Grid item xs={12}>
