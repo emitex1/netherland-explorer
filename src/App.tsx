@@ -5,6 +5,7 @@ import './App.css';
 import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
 import TopBar from './Components/TopBar';
 import LeftDrawer from './Components/LeftDrawer';
+import Searcher from './Components/Searcher';
 import AboutMe from './Components/AboutMe';
 
 /** Hooks */
@@ -26,7 +27,7 @@ function App() {
           <Grid item xs={12}>
             {
               pageIndex === 1
-                ? <Typography variant="h2" align="center">Search</Typography>
+                ? <Searcher />
                 : pageIndex === 2
                   ? <Typography variant="h2" align="center">Config</Typography>
                   : <AboutMe />
