@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
 import allCities from '../data/nl.json';
 
-interface IHash {
-  [key: string] : any[]
-}
-
 const useSearch = () => {
-  const [hashmap, setHashmap] = useState<IHash>();
+  const [hashmap, setHashmap] = useState<[][][]>();
   const [hashMapIsFilled, setHashMapIsFilled] = useState(false);
   const [searchResult, setSearchResult] = useState<any>();
   const [searchDuration, setSearchDuration] = useState('');
@@ -16,7 +12,13 @@ const useSearch = () => {
     if(hashMapIsFilled)
       return;
     
-    const cityHashMap: IHash = {};
+    const cityHashMap: any = [];
+    for(let alphabet1=0; alphabet1<26; ++alphabet1) {
+      cityHashMap.push([]);
+      for(let alphabet2=0; alphabet2<26; ++alphabet2) {
+        cityHashMap[alphabet1].push([])
+      }
+    }
 
     for(let alphabet1=0; alphabet1<26; ++alphabet1) {
       for(let alphabet2=0; alphabet2<26; ++alphabet2) {
@@ -31,10 +33,7 @@ const useSearch = () => {
           const keyPosition: number = city.cityName.indexOf(key);
 
           if(keyPosition >= 0) {
-            //console.log('city = ' , allCities[i].city , ' key=', key, ' pos=', keyPosition);
-            if(! cityHashMap[key])
-              cityHashMap[key] = [];
-            cityHashMap[key].push(city)
+            cityHashMap[alphabet1][alphabet2].push(city)
           }
         }
       }
@@ -51,10 +50,11 @@ const useSearch = () => {
       if(searchKeyword.length >= 2) {
         const t0 = performance.now();
 
-        const key = searchKeyword.substr(0, 2);
-        const relatedCities = hashmap[key];
-        const result = relatedCities && relatedCities.filter(c => c.cityName.indexOf(searchKeyword) >= 0);
-        // const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
+        const alphabet1Code = searchKeyword[0].charCodeAt(0) - 97;
+        const alphabet2Code = searchKeyword[1].charCodeAt(0) - 97;
+        const relatedCities = hashmap[alphabet1Code][alphabet2Code];
+        const result = relatedCities && relatedCities.filter( (c: any) => c.cityName.indexOf(searchKeyword) >= 0);
+        //const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
 
         const t1 = performance.now();
         setSearchResult(result);
