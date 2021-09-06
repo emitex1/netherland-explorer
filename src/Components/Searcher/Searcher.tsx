@@ -4,22 +4,11 @@ import useSearch from "./hooks/useSearch";
 import { Grid, Paper, Typography, Box } from "@material-ui/core";
 import SearchInput from "./components/SearchInput";
 import InitialMessage from "./components/InitialMessage";
+import NoResultMessage from "./components/NoResultMessage";
 
 export function Searcher() {
   const classes = useStyles();
   const { doSearch, keyword, searchResult, searchDuration } = useSearch();
-
-  const renderNoResult = () => (
-    <Grid container>
-      <Grid item xs={12}>
-        <Box my={3} color="#A42121">
-          <Typography variant="h6" align="center">
-            No results found for the "{keyword}" keyword
-          </Typography>
-        </Box>
-      </Grid>
-    </Grid>
-  )
 
   const renderSearchResults = () => (
     <Grid container>
@@ -89,7 +78,7 @@ export function Searcher() {
           { keyword === '' || keyword.length < 2
             ? <InitialMessage />
             : ! searchResult || searchResult.length === 0
-              ? renderNoResult()
+              ? <NoResultMessage keyword={keyword} />
               : renderSearchResults()
           }
           
