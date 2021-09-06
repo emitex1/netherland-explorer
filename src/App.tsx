@@ -5,8 +5,8 @@ import './App.css';
 import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
 import TopBar from './Components/TopBar';
 import LeftDrawer from './Components/LeftDrawer';
-import Searcher from './Components/Searcher';
-import AboutMe from './Components/AboutMe';
+import Searcher from './Containers/Searcher';
+import AboutMe from './Containers/AboutMe';
 
 /** Hooks */
 import useLeftDrawer from './Components/LeftDrawer/LeftDrawerHooks';
