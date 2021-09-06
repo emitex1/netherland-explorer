@@ -7,7 +7,7 @@ import ConfigIcon from '@material-ui/icons/Settings';
 import AboutIcon from '@material-ui/icons/Person';
 
 export function LeftDrawer(props: LeftDrawerPropTypes) {
-  const {isOpen, toggleDrawer} = props;
+  const {isOpen, toggleDrawer, setPageIndex} = props;
   const classes = useStyles();
 
   const innerToggleDrawer = (open: boolean) => (
@@ -47,17 +47,17 @@ export function LeftDrawer(props: LeftDrawerPropTypes) {
         <Divider />
 
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => setPageIndex(1)}>
             <ListItemIcon><SearchIcon /></ListItemIcon>
             <ListItemText primary="Search" />
           </ListItem>
 
-          <ListItem button>
+          <ListItem button onClick={() => setPageIndex(2)}>
             <ListItemIcon><ConfigIcon /></ListItemIcon>
             <ListItemText primary="Config" />
           </ListItem>
 
-          <ListItem button>
+          <ListItem button onClick={() => setPageIndex(3)}>
             <ListItemIcon><AboutIcon /></ListItemIcon>
             <ListItemText primary="About" />
           </ListItem>
