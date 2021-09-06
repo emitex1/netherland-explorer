@@ -29,7 +29,12 @@ function App() {
               pageIndex === 1
                 ? <Searcher />
                 : pageIndex === 2
-                  ? <Typography variant="h2" align="center">Config</Typography>
+                  ? (
+                    <>
+                      <Typography variant="h2" align="center">Configuration</Typography>
+                      <Typography variant="h5" align="center">Coming soon</Typography>
+                    </>
+                  )
                   : <AboutMe />
             }
           </Grid>
