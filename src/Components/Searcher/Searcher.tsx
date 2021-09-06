@@ -90,7 +90,7 @@ export function Searcher() {
 
       <Grid item xs={12}>
         <Typography variant="h6" align="center">
-          Search results for: {keyword}
+          Search results for "{keyword}" ({searchResult.length} cities)
         </Typography>
       </Grid>
 
