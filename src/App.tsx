@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
 import TopBar from './Components/TopBar';
 import LeftDrawer from './Components/LeftDrawer';
+import useLeftDrawer from './Components/LeftDrawer/LeftDrawerHooks';
 
 function App() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  }
+  const {isDrawerOpen, toggleDrawer} = useLeftDrawer();
 
   return (
     <React.Fragment>
