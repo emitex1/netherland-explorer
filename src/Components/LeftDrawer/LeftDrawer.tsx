@@ -49,17 +49,17 @@ export function LeftDrawer(props: LeftDrawerPropTypes) {
         <List>
           <ListItem button onClick={() => setPageIndex(1)}>
             <ListItemIcon><SearchIcon /></ListItemIcon>
-            <ListItemText primary="Search" />
+            <ListItemText primary="Search Cities" />
           </ListItem>
 
           <ListItem button onClick={() => setPageIndex(2)}>
             <ListItemIcon><ConfigIcon /></ListItemIcon>
-            <ListItemText primary="Config" />
+            <ListItemText primary="Configuration" />
           </ListItem>
 
           <ListItem button onClick={() => setPageIndex(3)}>
             <ListItemIcon><AboutIcon /></ListItemIcon>
-            <ListItemText primary="About" />
+            <ListItemText primary="About Me" />
           </ListItem>
         </List>
       </div>
