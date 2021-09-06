@@ -22,7 +22,7 @@ export function TopBar(props: TopBarPropTypes) {
               <Avatar alt="Logo" src="favicon-32x32.png" className={classes.white} />
             </Grid>
 
-            <Grid item alignItems="center">
+            <Grid item>
               <Typography variant="h6" color="inherit" align="center">
                 Netherland Explorer
               </Typography>
