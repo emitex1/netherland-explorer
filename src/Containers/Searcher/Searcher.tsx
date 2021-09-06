@@ -5,6 +5,7 @@ import { Grid, Paper, Typography, Box } from "@material-ui/core";
 import SearchInput from "./components/SearchInput";
 import InitialMessage from "./components/InitialMessage";
 import NoResultMessage from "./components/NoResultMessage";
+import { numberWithCommas } from "../../Util/formatter";
 
 export function Searcher() {
   const classes = useStyles();
@@ -54,7 +55,7 @@ export function Searcher() {
               </Grid>
               <Grid item xs={4}>
                 <Typography align="center">
-                  {city.population}
+                  {numberWithCommas(city.population)}
                 </Typography>
               </Grid>
             </Grid>
