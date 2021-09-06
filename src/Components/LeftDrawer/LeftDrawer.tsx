@@ -24,45 +24,45 @@ export function LeftDrawer(props: LeftDrawerPropTypes) {
     toggleDrawer();
   };
 
-  const list = () => (
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={innerToggleDrawer(false)}
-      onKeyDown={innerToggleDrawer(false)}
-    >
-      <Box display="flex" flexDirection="column" flexGrow={1} justifyContent="center" alignItems="center">
-        <Avatar alt="Logo" src="android-chrome-192x192.png" className={classes.large} variant="square" />
+  const renderHead = () => (
+    <Box display="flex" flexDirection="column" flexGrow={1} justifyContent="center" alignItems="center">
+      <Avatar alt="Logo" src="android-chrome-192x192.png" className={classes.large} variant="square" />
 
-        <Typography variant="h4" align="center">
-          Netherland Explorer
-        </Typography>
-      </Box>
-
-      <Divider />
-
-      <List>
-        {['Search', 'Config', 'About'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {
-                text === "Search"
-                  ? <SearchIcon />
-                  : text === "Config"
-                    ? <ConfigIcon />
-                    : <AboutIcon />
-              }
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+      <Typography variant="h4" align="center">
+        Netherland Explorer
+      </Typography>
+    </Box>
   );
 
   return (
     <Drawer anchor="left" open={isOpen} onClose={innerToggleDrawer(false)}>
-      {list()}
+      <div
+        className={classes.list}
+        role="presentation"
+        onClick={innerToggleDrawer(false)}
+        onKeyDown={innerToggleDrawer(false)}
+      >
+        {renderHead()}
+
+        <Divider />
+
+        <List>
+          <ListItem button>
+            <ListItemIcon><SearchIcon /></ListItemIcon>
+            <ListItemText primary="Search" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon><ConfigIcon /></ListItemIcon>
+            <ListItemText primary="Config" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon><AboutIcon /></ListItemIcon>
+            <ListItemText primary="About" />
+          </ListItem>
+        </List>
+      </div>
     </Drawer>
   )
 }
