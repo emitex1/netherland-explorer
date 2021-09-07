@@ -3,6 +3,7 @@ import { AppBar, Avatar, Grid, IconButton, Toolbar, Typography } from '@material
 import MenuIcon from '@material-ui/icons/Menu';
 import TopBarPropTypes from './TopBarPropTypes';
 import useStyles from './TopBarStyles';
+import logoImage from "../../assets/images/logo.png";
 
 export function TopBar(props: TopBarPropTypes) {
   const classes = useStyles();
@@ -19,7 +20,7 @@ export function TopBar(props: TopBarPropTypes) {
           <Grid container alignItems="center" spacing={2}>
 
             <Grid item>
-              <Avatar alt="Logo" src="favicon-32x32.png" className={classes.white} />
+              <Avatar alt="Logo" src={logoImage} className={classes.white} />
             </Grid>
 
             <Grid item>
