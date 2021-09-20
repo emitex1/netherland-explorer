@@ -12,13 +12,16 @@ const useSearch = () => {
   const [searchDuration, setSearchDuration] = useState('');
   const [keyword, setKeyword] = useState('');
 
+  // Character code of letter 'A'
+  const A_CHAR_CODE = 97;
+
   /**
    * Get character code of given alphabet letter
    * @param alphabetLetter given alphabet letter
    * @returns character code of input
    */
   const getAlphabetCode = (alphabetLetter: string) => {
-    return alphabetLetter.toLowerCase().charCodeAt(0) - 97;
+    return alphabetLetter.toLowerCase().charCodeAt(0) - A_CHAR_CODE;
   }
 
 
