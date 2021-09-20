@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     altRow: {
       backgroundColor: theme.palette.primary.light
+    },
+    card: {
+      marginBottom: theme.spacing(1.5)
     }
   }),
 );
