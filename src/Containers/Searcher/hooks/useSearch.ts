@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import allCities from '../data/nl.json';
 
+/**
+ * A hook to provide search ability
+ * @returns 
+ */
 const useSearch = () => {
   const [hashmap, setHashmap] = useState<[][][]>();
   const [hashMapIsFilled, setHashMapIsFilled] = useState(false);
@@ -8,6 +12,20 @@ const useSearch = () => {
   const [searchDuration, setSearchDuration] = useState('');
   const [keyword, setKeyword] = useState('');
 
+  /**
+   * Get character code of given alphabet letter
+   * @param alphabetLetter given alphabet letter
+   * @returns character code of input
+   */
+  const getAlphabetCode = (alphabetLetter: string) => {
+    return alphabetLetter.toLowerCase().charCodeAt(0) - 97;
+  }
+
+
+  /**
+   * Generate HashMap of input search set to provide faster search
+   * @returns generated hashmap
+   */
   const generateHashMap = () => {
     if(hashMapIsFilled)
       return;
@@ -43,6 +61,10 @@ const useSearch = () => {
     setHashMapIsFilled(true);
   }
 
+  /**
+   * Do the search according to given search keyword
+   * @param searchKeyword given search keyword entered by user
+   */
   const doSearch = (searchKeyword: string) => {
     setKeyword(searchKeyword);
 
@@ -50,8 +72,8 @@ const useSearch = () => {
       if(searchKeyword.length >= 2 && searchKeyword.match(/^[a-zA-Z]*$/)) {
         const t0 = performance.now();
 
-        const alphabet1Code = searchKeyword[0].toLowerCase().charCodeAt(0) - 97;
-        const alphabet2Code = searchKeyword[1].toLowerCase().charCodeAt(0) - 97;
+        const alphabet1Code = getAlphabetCode(searchKeyword[0]);
+        const alphabet2Code = getAlphabetCode(searchKeyword[1]);
         const relatedCities = hashmap[alphabet1Code][alphabet2Code];
         const result = relatedCities && relatedCities.filter( (c: any) => c.cityName.toLowerCase().indexOf(searchKeyword.toLowerCase()) >= 0);
         //const result = allCities && allCities.filter(c => c.city.indexOf(searchKeyword) >= 0);
