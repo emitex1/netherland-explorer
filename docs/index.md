@@ -18,7 +18,7 @@ or
 
 * `yarn start`
 
-### Support or Contact
+## Support or Contact
 
 **Emad Armoun**
 
