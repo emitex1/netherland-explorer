@@ -3,7 +3,7 @@ import { AppBar, Avatar, Grid, Hidden, IconButton, Toolbar, Typography } from '@
 import MenuIcon from '@material-ui/icons/Menu';
 import TopBarPropTypes from './TopBarPropTypes';
 import useStyles from './TopBarStyles';
-import logoImage from "../../assets/images/logo.png";
+import logoImage from "../../assets/images/logo_wider.png";
 
 export function TopBar(props: TopBarPropTypes) {
   const classes = useStyles();
