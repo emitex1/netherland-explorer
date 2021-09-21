@@ -1,4 +1,5 @@
-# the Netherland Explorer
+# Netherland Explorer
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9d888c63-dc57-4930-b43c-b8e7c8e9ab4d/deploy-status)](https://app.netlify.com/sites/netherland-explorer/deploys)
 
 This is a test project to provide a search algorithm on the Netherland cities, it uses a HashMap to improve the search speed. Also it uses the virtualization technique to improve the performance.
 
