@@ -4,7 +4,7 @@ This is a test project to provide a search algorithm on the Netherland cities, i
 Also it uses the virtualization technique to improve the performance.
 
 You can see
-* a live demo in the [Vercel](https://netherland-explorer.vercel.app/).
+* a live demo in the [Netlify](https://netherland-explorer.netlify.app/).
 * technical documents in the [Wiki](https://github.com/Em-IT/netherland-explorer/wiki)
 
 ![](https://netherland-explorer.vercel.app/static/media/logo.64304619.png)
