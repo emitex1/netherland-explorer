@@ -1,4 +1,5 @@
 import { Box, Grid, Typography } from "@material-ui/core";
+import startPhoto from "../../../assets/images/start.png";
 
 const InitialMessage = () => {
   return (
@@ -9,6 +10,8 @@ const InitialMessage = () => {
             Please enter a keyword (at least 2 characters) to search for the cities of the Netherlands
           </Typography>
         </Box>
+
+        <img src={startPhoto} alt="Start Search" style={{width: '100%'}} />
       </Grid>
     </Grid>
   )
