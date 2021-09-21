@@ -27,9 +27,9 @@ function App() {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             {
-              pageIndex === 1
+              pageIndex === 0
                 ? <Searcher />
-                : pageIndex === 2
+                : pageIndex === 1
                   ? (
                     <>
                       <Typography variant="h2" align="center">Configuration</Typography>
@@ -43,7 +43,7 @@ function App() {
       </Container>
 
       <Hidden smUp>
-        <BottomNavBar />
+        <BottomNavBar pageIndex={pageIndex} setPageIndex={setPageIndex} />
       </Hidden>
 
     </React.Fragment>

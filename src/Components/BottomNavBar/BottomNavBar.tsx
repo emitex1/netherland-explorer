@@ -4,16 +4,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import ConfigIcon from '@material-ui/icons/Settings';
 import AboutIcon from '@material-ui/icons/Person';
 import useStyles from "./BottomNavBarStyles";
+import BottomNavBarPropTypes from "./BottomNavBarPropTypes";
 
-export const BottomNavBar = () => {
-  const [value, setValue] = useState();
+export const BottomNavBar = (props: BottomNavBarPropTypes) => {
   const classes = useStyles();
+  const {pageIndex, setPageIndex} = props;
 
   return (
     <BottomNavigation
-      value={value}
+      value={pageIndex}
       onChange={(event, newValue) => {
-          setValue(newValue);
+        setPageIndex(newValue)
       }}
       showLabels
       className={classes.root}
