@@ -18,9 +18,9 @@ export const BottomNavBar = (props: BottomNavBarPropTypes) => {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Search" icon={<SearchIcon />} />
-      <BottomNavigationAction label="Config" icon={<ConfigIcon />} />
-      <BottomNavigationAction label="About" icon={<AboutIcon />} />
+      <BottomNavigationAction label="Search Cities" icon={<SearchIcon />} />
+      <BottomNavigationAction label="Configuration" icon={<ConfigIcon />} />
+      <BottomNavigationAction label="About Me" icon={<AboutIcon />} />
     </BottomNavigation>
   )
 }
