@@ -5,7 +5,7 @@ Also it uses the virtualization technique to improve the performance.
 
 You can see a live demo in the [Vercel](https://netherland-explorer.vercel.app/).
 
-![](../src/assets/images/logo.png)
+![](https://netherland-explorer.vercel.app/static/media/logo.64304619.png)
 
 ## User Interface
 
@@ -28,4 +28,4 @@ or
 
 * [LinkedIn profile](https://www.linkedin.com/in/em-it/)
 
-![](../src/assets/images/me.jpg)
+![](https://netherland-explorer.vercel.app/static/media/me.602759a1.jpg)
