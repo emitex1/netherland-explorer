@@ -14,7 +14,7 @@ import useLeftDrawer from './Components/LeftDrawer/LeftDrawerHooks';
 
 function App() {
   const {isDrawerOpen, toggleDrawer} = useLeftDrawer();
-  const [pageIndex, setPageIndex] = useState<number>(1);
+  const [pageIndex, setPageIndex] = useState<number>(0);
 
   return (
     <React.Fragment>
