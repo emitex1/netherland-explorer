@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import ConfigIcon from '@material-ui/icons/Settings';
