@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 
 /** Components */
-import { Container, CssBaseline, Grid, Typography } from '@material-ui/core';
+import { Container, CssBaseline, Grid, Hidden, Typography } from '@material-ui/core';
 import TopBar from './Components/TopBar';
 import LeftDrawer from './Components/LeftDrawer';
+import BottomNavBar from './Components/BottomNavBar';
 import Searcher from './Containers/Searcher';
 import AboutMe from './Containers/AboutMe';
 
@@ -40,6 +41,11 @@ function App() {
           </Grid>
         </Grid>
       </Container>
+
+      <Hidden smUp>
+        <BottomNavBar />
+      </Hidden>
+
     </React.Fragment>
   );
 }
