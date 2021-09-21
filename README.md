@@ -4,6 +4,8 @@ This is a test project to provide a search algorithm on the Netherland cities, i
 
 [Live demo on vercel](https://netherland-explorer.vercel.app/)
 
+[The Main Page](https://em-it.github.io/netherland-explorer/)
+
 ![](/src/assets/images/logo.png)
 
 ## Technologies:
