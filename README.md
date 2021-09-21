@@ -1,8 +1,6 @@
 # the Netherland Explorer
 
-This is a sample project which let one to explore the Netherland cities
-
-*Boosted with a custom search algorithm*
+This is a test project to provide a search algorithm on the Netherland cities, it uses a HashMap to improve the search speed. Also it uses the virtualization technique to improve the performance.
 
 [Live demo on vercel](https://netherland-explorer.vercel.app/)
 
