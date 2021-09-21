@@ -2,9 +2,11 @@
 
 This is a test project to provide a search algorithm on the Netherland cities, it uses a HashMap to improve the search speed. Also it uses the virtualization technique to improve the performance.
 
-[Live demo on vercel](https://netherland-explorer.vercel.app/)
+[Live Demo on Vercel](https://netherland-explorer.vercel.app/)
 
-[The Main Page](https://em-it.github.io/netherland-explorer/)
+[The Official Page](https://em-it.github.io/netherland-explorer/)
+
+[Technical Documents in the Wiki](https://github.com/Em-IT/netherland-explorer/wiki)
 
 ![](/src/assets/images/logo.png)
 
