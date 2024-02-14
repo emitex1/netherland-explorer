@@ -5,7 +5,7 @@ This is a test project to provide a search algorithm on the Netherland cities, i
 
 [Live Demo on Netlify](https://netherland-explorer.netlify.app/)
 
-[The Official Page](https://em-it.github.io/netherland-explorer/)
+[The Official Page](https://emitex1.github.io/netherland-explorer/)
 
 [Technical Documents in the Wiki](https://github.com/Em-IT/netherland-explorer/wiki)
 
