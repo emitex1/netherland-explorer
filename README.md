@@ -7,7 +7,7 @@ This is a test project to provide a search algorithm on the Netherland cities, i
 
 [The Official Page](https://emitex1.github.io/netherland-explorer/)
 
-[Technical Documents in the Wiki](https://github.com/Em-IT/netherland-explorer/wiki)
+[Technical Documents in the Wiki](https://github.com/emitex1/netherland-explorer/wiki)
 
 ![](/src/assets/images/logo.png)
 
